@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PabitraCodes' Chromatic Cipher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--
+    tbsm
+    -->
+
+    <div class="app-container">
+        <header class="app-header">
+            <h1 class="app-title">Pabitra Chromatic Cipher</h1>
+            <p class="app-subtitle">Advanced Color-Based Substitution Cipher</p>
+        </header>
+
+        <main class="app-main">
+            <section class="input-section">
+                <div class="form-group">
+                    <label for="inputText" class="form-label">Message to Encode</label>
+                    <textarea 
+                        id="inputText" 
+                        class="form-control input-textarea" 
+                        placeholder="Enter your message to encode..."
+                        rows="4"
+                        aria-describedby="inputHelp"
+                    ></textarea>
+                    <small id="inputHelp" class="help-text">
+                        Type any text - letters, numbers, and common punctuation are supported
+                    </small>
+                </div>
+
+                <div class="controls-panel">
+                    <button id="encodeBtn" class="btn btn--primary btn--lg encode-button">
+                        <span class="button-text">ENCODE</span>
+                    </button>
+
+                    <div class="toggle-group">
+                        <div class="toggle-item">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="showUnmappedToggle" checked>
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-text">Show Unmapped</span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-item">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="layoutToggle">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-text">Grid Layout</span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-item">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="themeToggle">
+                                <span class="toggle-slider"></span>
+                                <span class="toggle-text">Dark Theme</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="output-section">
+                <div class="output-header">
+                    <h3>Encoded Message</h3>
+                    <div class="action-buttons">
+                        <button id="decodeBtn" class="btn btn--secondary">
+                            DECODE FROM BLOCKS
+                        </button>
+                        <button id="copyHexBtn" class="btn btn--outline">
+                            COPY HEX PALETTE
+                        </button>
+                        <button id="copyMessageBtn" class="btn btn--outline">
+                            COPY DECODED MESSAGE
+                        </button>
+                    </div>
+                </div>
+
+                <div id="colorBlocks" class="color-blocks-container" data-layout="strip">
+                    <div class="empty-state">
+                        <p>Enter text above and click ENCODE to see the color cipher</p>
+                    </div>
+                </div>
+
+                <div class="decoded-message-section">
+                    <label for="decodedMessage" class="form-label">Decoded Message</label>
+                    <textarea 
+                        id="decodedMessage" 
+                        class="form-control decoded-textarea" 
+                        readonly
+                        placeholder="Decoded message will appear here..."
+                        rows="3"
+                    ></textarea>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p class="watermark">©pabitracodes</p>
+        </footer>
+    </div>
+
+    <!-- Tooltip for color block hover -->
+    <div id="tooltip" class="tooltip" role="tooltip">
+        <div class="tooltip-content">
+            <div class="tooltip-char"></div>
+            <div class="tooltip-hsv"></div>
+            <div class="tooltip-hex"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
